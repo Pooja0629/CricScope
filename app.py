@@ -1,5 +1,5 @@
 import streamlit as st
-import pickle
+
 import pandas as pd
 
 # -----------------------------------
@@ -14,7 +14,14 @@ st.set_page_config(
 # -----------------------------------
 # LOAD MODEL
 # -----------------------------------
-pipe = pickle.load(open('pipe.pkl', 'rb'))
+import pickle
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.join(BASE_DIR, "pipe.pkl")
+
+with open(model_path, "rb") as f:
+    pipe = pickle.load(f)
 
 # -----------------------------------
 # PREMIUM CSS
