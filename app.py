@@ -2,9 +2,6 @@ import streamlit as st
 
 import pandas as pd
 
-import sklearn
-st.write("Sklearn version:", sklearn.__version__)
-
 # -----------------------------------
 # PAGE CONFIG
 # -----------------------------------
@@ -18,7 +15,9 @@ st.set_page_config(
 # LOAD MODEL
 # -----------------------------------
 import joblib
-pipe = joblib.load("pipe.pkl")
+
+model = joblib.load("model.pkl")
+columns = joblib.load("columns.pkl")
 
 # -----------------------------------
 # PREMIUM CSS
