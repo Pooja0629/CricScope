@@ -2,6 +2,9 @@ import streamlit as st
 
 import pandas as pd
 
+import sklearn
+st.write("Sklearn version:", sklearn.__version__)
+
 # -----------------------------------
 # PAGE CONFIG
 # -----------------------------------
