@@ -171,7 +171,7 @@ if st.button("🚀 Analyze Match"):
         'rrr':[rrr]
     })
 
-    result = pipe.predict_proba(input_df)
+    result = model.predict_proba(input_df)
 
     win = result[0][1]
     loss = result[0][0]
