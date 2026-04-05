@@ -1,5 +1,5 @@
 import streamlit as st
-
+import pickle
 import pandas as pd
 
 # -----------------------------------
@@ -14,10 +14,8 @@ st.set_page_config(
 # -----------------------------------
 # LOAD MODEL
 # -----------------------------------
-import joblib
-
-model = joblib.load("model.pkl")
-columns = joblib.load("columns.pkl")
+with open('pipe.pkl', 'rb') as f:
+    pipe = pickle.load(f)
 
 # -----------------------------------
 # PREMIUM CSS
@@ -171,7 +169,7 @@ if st.button("🚀 Analyze Match"):
         'rrr':[rrr]
     })
 
-    result = model.predict_proba(input_df)
+    result = pipe.predict_proba(input_df)
 
     win = result[0][1]
     loss = result[0][0]
